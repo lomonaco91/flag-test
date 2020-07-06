@@ -1,0 +1,43 @@
+<h3>Informações detalhadas - País vizinho</h3>
+
+<img src="{{ objCountrySelect.bandeira }}" class="flgCountry" />
+
+<strong
+  ><p>Nome:{{ objCountrySelect.nome }}</p></strong
+>
+
+<strong
+  ><p>Capital:{{ objCountrySelect.capital }}</p></strong
+>
+
+<strong
+  ><p>Região:{{ objCountrySelect.regiao }}</p></strong
+>
+
+<strong
+  ><p>Sub-região:{{ objCountrySelect.subRegiao }}</p></strong
+>
+
+<strong
+  ><p>População:{{ objCountrySelect.populacao }}</p></strong
+>
+
+<strong><p>Língua:</p></strong>
+<ul class="list-group">
+  <span *ngFor="let lg of languageCountry">
+    {{ lg.name }}
+  </span>
+</ul>
+
+<a href="/home" class="btn btn-primary btn-lg active mt-3 m-3" role="button" aria-pressed="true">Voltar</a>
+
+<!-- LOADING -->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white;">Aguarde...</p>
+</ngx-spinner>
+<!-- LOADING -->

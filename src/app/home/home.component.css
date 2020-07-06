@@ -1,0 +1,10 @@
+.flagCnt {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.flagFull {
+  width: 200px !important;
+  height: 200px !important;
+  margin-top: 10px !important;
+}

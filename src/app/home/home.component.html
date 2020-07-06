@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <strong><p>Busca por regiões</p></strong>
+      <form [formGroup]="formData">
+        <div class="form-group">
+          <label>Selecione a região</label>
+          <select class="form-control" formControlName="region">
+            <option *ngFor="let rgOpt of regionList" [value]="rgOpt.idValue">{{
+              rgOpt.name
+            }}</option>
+          </select>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!formData.valid"
+          (click)="findCountry()"
+        >
+          Buscar
+        </button>
+      </form>
+
+      <div *ngIf="showDetails">
+        <ul class="list-group">
+          <div *ngFor="let infoCt of listInfoCountry">
+            <p>Nome do país: {{ infoCt.name }}</p>
+            <img src="{{ infoCt.flag }}" class="flagCnt" />
+            <hr />
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6" *ngIf="showCountry">
+      <strong><p>Lista de países</p></strong>
+      <div class="form-group">
+        <form [formGroup]="formData">
+          <label>Selecione a região</label>
+          <select class="form-control" (change)="getFlag($event.target.value)">
+            <option>--Selecione um país--</option>
+            <option
+              *ngFor="let infoCt of listInfoCountry"
+              [value]="infoCt.ctId"
+              >{{ infoCt.name }}</option
+            >
+          </select>
+          <img
+            src="{{ flagCountrySelect }}"
+            class="flagCnt"
+            *ngIf="showSelectFlag"
+            class="flagFull"
+            (click)="moreInfos()"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOADING -->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white;">Aguarde...</p>
+</ngx-spinner>
+<!-- LOADING -->
